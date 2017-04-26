@@ -23,7 +23,7 @@ sudo wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
 sudo tar vzxf noip-duc-linux.tar.gz
 ```
 
-* 編譯&安裝
+* 編譯&安裝（安裝過程要輸入帳密、更新哪一個網域）
 
 ```
 cd noip-2.1.9-1
@@ -31,10 +31,36 @@ sudo make
 sudo make install
 ```
 
+* 變更檔案擁有者為pi（預設由pi啟動）
+
+```
+sudo chown pi /usr/local/etc/no-ip2.conf
+```
+
 * 啟動更新
 
 ```
-sudo /usr/local/bin/noip2
+/usr/local/bin/noip2
+```
+
+到這邊安裝與設定已完成，以下是其他指令參考：
+
+* 顯示設定資訊
+
+```
+/usr/local/bin/noip2 -S    #大寫S
+```
+
+* 重新設定
+
+```
+/usr/local/bin/noip2 -C    #大寫C
+```
+
+* 停止已啟動的程序
+
+```
+/usr/local/bin/noip2 -K {PID}    #PID=Process ID
 ```
 
 > ##### 設定啟動時執行

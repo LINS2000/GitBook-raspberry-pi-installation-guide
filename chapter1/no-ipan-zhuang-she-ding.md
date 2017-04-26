@@ -23,5 +23,13 @@ sleep 30
 /usr/local/bin/noip2
 ```
 
+* 加入crontab排程中，在開機時啟動
+
+###### 編輯 crontab -e
+
+```
+@reboot bash ~/noip-auto.sh
+```
+
 
 

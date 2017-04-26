@@ -4,5 +4,9 @@
 
 > ##### 修改密碼指令
 
-`sudo passwd pi`
+```
+sudo passwd pi
+```
+
+
 

@@ -1,3 +1,6 @@
-# My Awesome Book
+# My Raspberry Pi Setup Book
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+---
+
+這是一本寫給我自己的書，它記錄我在玩Raspberry Pi的一些安裝筆記或使用心得。
+

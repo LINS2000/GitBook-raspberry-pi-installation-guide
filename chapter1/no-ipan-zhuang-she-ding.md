@@ -54,13 +54,15 @@ sudo chown pi /usr/local/etc/no-ip2.conf
 * 停止已啟動的程序（可使用 -S 查詢 PID）
 
 ```
-/usr/local/bin/noip2 -K {PID} #PID=Process ID
+/usr/local/bin/noip2 -K {PID}    #PID=Process ID
 ```
 
 * 重新設定（未啟動的情況下才能做，如果已經在執行中，可使用 -K 停止程序）
 
 ```
-/usr/local/bin/noip2 -C    #大寫C
+sudo /usr/local/bin/noip2 -C    #大寫C
+
+sudo chown pi /usr/local/etc/no-ip2.conf    #重新設定後須再做一次變更擁有者, 才能由pi來啟動
 ```
 
 > ##### 設定啟動時執行

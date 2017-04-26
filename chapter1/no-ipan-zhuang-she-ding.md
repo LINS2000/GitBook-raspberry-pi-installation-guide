@@ -4,7 +4,25 @@
 
 > ##### 安裝NO-IP DUC
 
-##### 
+```
+# 建立目錄
+sudo mkdir /home/pi/noip
+cd /home/pi/noip
+
+# 下載 no-ip
+sudo wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+
+# 解壓縮
+sudo tar vzxf noip-duc-linux.tar.gz
+
+# 編譯&安裝
+cd noip-2.1.9-1
+sudo make
+sudo make install
+
+# 啟動更新
+sudo /usr/local/bin/noip2
+```
 
 > ##### 設定啟動時執行
 

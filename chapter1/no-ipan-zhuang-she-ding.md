@@ -15,11 +15,13 @@
 
 * 新增一個noip-auto.sh檔，執行noip服務前延遲30秒（需注意noip相關檔案執行身分與權限）
 
-`#!/bin/bash`
+        檔案內容
 
+```
+#!/bin/bash
 sleep 30
+/usr/local/bin/noip2
+```
 
 
-
-`/usr/local/bin/noip2`
 

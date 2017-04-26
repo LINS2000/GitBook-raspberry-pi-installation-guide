@@ -57,7 +57,7 @@ sudo chown pi /usr/local/etc/no-ip2.conf
 /usr/local/bin/noip2 -K {PID} #PID=Process ID
 ```
 
-* 重新設定（未啟動的情況下才能做，如果已經在執行中，可使用 -K 停止）
+* 重新設定（未啟動的情況下才能做，如果已經在執行中，可使用 -K 來停止）
 
 ```
 /usr/local/bin/noip2 -C    #大寫C

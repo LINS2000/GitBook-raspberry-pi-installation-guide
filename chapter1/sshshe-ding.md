@@ -11,6 +11,13 @@ mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 ```
 
+* 產生金鑰
+
+```
+cd ~/.ssh
+ssh-keygen
+```
+
 * 將公開金鑰寫入 ~/.ssh/authorized\_keys
 
 ```
@@ -24,6 +31,14 @@ cat super.pub >> authorized_keys
 ```
 PasswordAuthentication no
 PubkeyAuthentication yes
+```
+
+> 改 SSH Port
+
+* 修改 nano /etc/ssh/sshd\_config
+
+```
+Port 443
 ```
 
 

@@ -6,4 +6,6 @@
   * [SSH 設定](chapter1/sshshe-ding.md)
   * [PPPOE 設定](chapter1/pppoe.md)
   * [NO-IP 安裝設定](chapter1/no-ipan-zhuang-she-ding.md)
+* [應用套件](ying-yong-tao-jian.md)
+  * [Git](ying-yong-tao-jian/git.md)
 

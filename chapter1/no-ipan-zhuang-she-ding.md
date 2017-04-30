@@ -7,20 +7,20 @@
 * 建立目錄
 
 ```
-sudo mkdir /home/pi/noip
+mkdir /home/pi/noip
 cd /home/pi/noip
 ```
 
 * 下載 no-ip
 
 ```
-sudo wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
 ```
 
 * 解壓縮
 
 ```
-sudo tar vzxf noip-duc-linux.tar.gz
+tar vzxf noip-duc-linux.tar.gz
 ```
 
 * 編譯&安裝（安裝過程要輸入帳密、更新哪一個網域）

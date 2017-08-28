@@ -9,4 +9,5 @@
 * [應用套件](ying-yong-tao-jian.md)
   * [Git](ying-yong-tao-jian/git.md)
   * [PiVPN \(OpenVPN\)](ying-yong-tao-jian/openvpn.md)
+  * [etherwake - 遠端喚醒](ying-yong-tao-jian/etherwake-yuan-duan-huan-xing.md)
 

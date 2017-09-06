@@ -39,7 +39,7 @@ sudo iptables-save > /etc/iptables/rules.v4
 push "route 192.168.5.0 255.255.255.0"
 ```
 
-* 修改/etc/openvpn/server.conf，加入上面設定，此設定主要是作用在Client端，讓Client端連上VPN時能套用此route rule。
+* 修改 /etc/openvpn/server.conf，加入上面設定，此設定主要是作用在Client端，讓Client端連上VPN時能套用此route rule。
 
 > 分配固定IP設定
 
@@ -55,11 +55,15 @@ sudo mkdir /etc/openvpn/ccd
 client-config-dir /etc/openvpn/ccd
 ```
 
-* 在/etc/openvpn/ccd下新增檔名為使用者名稱的檔案 \(例：使用者pi4201，固定IP為 10.8.0.201\)，內容為：
+* 在 /etc/openvpn/ccd 下新增檔名為使用者名稱的檔案 \(例：使用者pi4201，固定IP為 10.8.0.201\)，內容為：
 
 ```
 ifconfig-push 10.8.0.201 255.255.255.0
 ```
+
+註：使用者名稱即為 `pivpn -a` 所輸入的 Name for the Client
+
+
 
 > ~~My asus 設定 \(有問題不要用\)~~
 

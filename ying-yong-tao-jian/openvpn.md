@@ -10,7 +10,7 @@ curl -L https://install.pivpn.io | bash
 
 * 有UI，跟著步驟做，不會太難，或可以參考 [PiVPN Setup And Configuration](https://www.ostechnix.com/pivpn-simplest-openvpn-setup-configuration-designed-raspberry-pi/)。
 
-> Route 設定 \(後來發現僅需最後一個，前方\#註解的不需要\)
+> Route 設定 \(後來發現僅需最後一個，前方\#註解的都不需要\)
 
 ```
 #sudo iptables -I FORWARD -i tun0 -o wlan0 -s 10.8.0.0/24 -d 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT
@@ -40,6 +40,26 @@ push "route 192.168.5.0 255.255.255.0"
 ```
 
 * 修改/etc/openvpn/server.conf，加入上面設定，此設定主要是作用在Client端，讓Client端連上VPN時能套用此route rule。
+
+> 分配固定IP設定
+
+* 建立資料匣
+
+```
+sudo mkdir /etc/openvpn/ccd
+```
+
+* server.conf 檔新增一行
+
+```
+client-config-dir /etc/openvpn/ccd
+```
+
+* 在/etc/openvpn/ccd下新增檔名為使用者名稱的檔案 \(例：pi4201\)，內容為：\(指定固定IP為 10.8.0.201\)
+
+```
+ifconfig-push 10.8.0.201 255.255.255.0
+```
 
 > My asus 設定 \(有問題不要用\)
 

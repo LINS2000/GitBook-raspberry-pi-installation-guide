@@ -61,7 +61,7 @@ client-config-dir /etc/openvpn/ccd
 ifconfig-push 10.8.0.201 255.255.255.0
 ```
 
-> My asus 設定 \(有問題不要用\)
+> ~~My asus 設定 \(有問題不要用\)~~
 
 ```
 sudo iptables -I FORWARD -i tun21 -o br0 -s 10.8.0.0/24 -d 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT

@@ -55,7 +55,7 @@ sudo mkdir /etc/openvpn/ccd
 client-config-dir /etc/openvpn/ccd
 ```
 
-* 在/etc/openvpn/ccd下新增檔名為使用者名稱的檔案 \(例：pi4201\)，內容為：\(指定固定IP為 10.8.0.201\)
+* 在/etc/openvpn/ccd下新增檔名為使用者名稱的檔案 \(例：使用者pi4201，固定IP為 10.8.0.201\)，內容為：
 
 ```
 ifconfig-push 10.8.0.201 255.255.255.0

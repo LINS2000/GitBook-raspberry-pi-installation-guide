@@ -10,15 +10,15 @@ curl -L https://install.pivpn.io | bash
 
 * 有UI，跟著步驟做，不會太難，或可以參考 [PiVPN Setup And Configuration](https://www.ostechnix.com/pivpn-simplest-openvpn-setup-configuration-designed-raspberry-pi/)。
 
-> Route 設定
+> Route 設定 \(後來發現僅需最後一個，前方\#註解的不需要\)
 
 ```
-sudo iptables -I FORWARD -i tun0 -o wlan0 -s 10.8.0.0/24 -d 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT
-sudo iptables -I FORWARD -i tun0 -o ppp0 -s 10.8.0.0/24 -m conntrack --ctstate NEW -j ACCEPT
-sudo iptables -I FORWARD -i wlan0 -o ppp0 -s 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT
-sudo iptables -I FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
-sudo iptables -t nat -I POSTROUTING -o ppp0 -s 10.8.0.0/24 -j MASQUERADE
-sudo iptables -t nat -I POSTROUTING -o ppp0 -s 192.168.5.0/24 -j MASQUERADE
+#sudo iptables -I FORWARD -i tun0 -o wlan0 -s 10.8.0.0/24 -d 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT
+#sudo iptables -I FORWARD -i tun0 -o ppp0 -s 10.8.0.0/24 -m conntrack --ctstate NEW -j ACCEPT
+#sudo iptables -I FORWARD -i wlan0 -o ppp0 -s 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT
+#sudo iptables -I FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+#sudo iptables -t nat -I POSTROUTING -o ppp0 -s 10.8.0.0/24 -j MASQUERADE
+#sudo iptables -t nat -I POSTROUTING -o ppp0 -s 192.168.5.0/24 -j MASQUERADE
 sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o wlan0 -j MASQUERADE
 ```
 
@@ -41,7 +41,7 @@ push "route 192.168.5.0 255.255.255.0"
 
 * 修改/etc/openvpn/server.conf，加入上面設定，此設定主要是作用在Client端，讓Client端連上VPN時能套用此route rule。
 
-> My asus 設定
+> My asus 設定 \(有問題不要用\)
 
 ```
 sudo iptables -I FORWARD -i tun21 -o br0 -s 10.8.0.0/24 -d 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT

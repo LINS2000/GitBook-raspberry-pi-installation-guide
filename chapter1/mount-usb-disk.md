@@ -37,5 +37,13 @@ proc            /proc           proc    defaults          0       0
 sudo reboot
 ```
 
+> 新增捷徑 \(Optional\)
+
+```
+ln -s /media/u/pi ~/u
+```
+
+* 新增捷徑在home目錄下，方便存取
+
 
 

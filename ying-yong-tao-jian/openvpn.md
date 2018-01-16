@@ -73,5 +73,32 @@ sudo iptables -t nat -I POSTROUTING -o ppp0 -s 192.168.5.0/24 -j MASQUERADE
 sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o br0 -j MASQUERADE
 ```
 
+> Debian 9 \(Stretch\) 環境下 OpenVPN Android 官方APP無法連接問題
+
+* 參考解決方案：[Official OpenVPN Connect Android client error with PiVPN on Stretch: Requested encryption or digest alg not available \#364](https://github.com/pivpn/pivpn/issues/364)
+* 以下節錄
+
+```
+For the more impatient people, like me, here is how to re-encode the private key:
+
+cd ~/ovpns
+cp not-working-profile.ovpn not-working-profile-backup.ovpn
+openssl rsa -aes256 -in not-working-profile.ovpn -out new-key-file.key
+This will ask for the key password and will generate a new key file (asking for a new password - you can use the same one), containing ONLY the key, having the following header:
+
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-256-CBC,XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<private key content follows>
+To compare, the old private key header (from the .ovpn file) looks like this:
+
+-----BEGIN ENCRYPTED PRIVATE KEY-----
+<private key content follows>
+Now, after obtaining the new key, use your favorite text editor and open the .ovpn file and replace everything in between the <key> and </key> tags with the newly generated key.
+
+Save the file, and then re-import the profile on your device. Enjoy!
+```
+
 
 

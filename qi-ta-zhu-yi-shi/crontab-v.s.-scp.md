@@ -1,6 +1,6 @@
 # crontab v.s. scp
 
-scp指令加入crontab排程造成不成功原因是遠端ssh登入認證問題，解決方案是來源端的~/.ssh目錄必須有私鑰，並且把相對應公鑰寫入目的端的~/.ssh/authorized\_keys中。
+scp指令在crontab排程執行不成功原因是：遠端ssh登入認證問題，解決方案是來源端的~/.ssh目錄必須有私鑰，並且把相對應公鑰寫入目的端的~/.ssh/authorized\_keys中。
 
 ```text
 mkdir –p ~/.ssh

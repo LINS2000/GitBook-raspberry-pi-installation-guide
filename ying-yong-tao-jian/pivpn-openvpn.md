@@ -1,10 +1,8 @@
-# PiVPN \(OpenVPN\) Server 安裝
-
----
+# PiVPN \(OpenVPN\)
 
 > 安裝指令
 
-```
+```text
 curl -L https://install.pivpn.io | bash
 ```
 
@@ -12,7 +10,7 @@ curl -L https://install.pivpn.io | bash
 
 > Route 設定 \(後來發現僅需最後一個，前方\#註解的都不需要\)
 
-```
+```text
 #sudo iptables -I FORWARD -i tun0 -o wlan0 -s 10.8.0.0/24 -d 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT
 #sudo iptables -I FORWARD -i tun0 -o ppp0 -s 10.8.0.0/24 -m conntrack --ctstate NEW -j ACCEPT
 #sudo iptables -I FORWARD -i wlan0 -o ppp0 -s 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT
@@ -25,7 +23,7 @@ sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o wlan0 -j MASQUERADE
 * 上述設定主要是要能從VPN登入後Access到Lan，是參考 [OpenVPN - Bridging vs. Routing](https://community.openvpn.net/openvpn/wiki/BridgingAndRouting) 與 [PiVPN - Potential issues with your iptables](https://github.com/pivpn/pivpn/issues/182) 而找到的解決方案。
 * 這樣的設定僅暫時生效，重新開機後將失效，為了讓設定永久保留，必須將設定回存/etc/iptables/rules.v4。
 
-```
+```text
 # 備份目前設定--以備還原
 sudo cp /etc/iptables/rules.v4 /etc/iptables/rules-bak.v4
 
@@ -35,7 +33,7 @@ sudo iptables-save > /etc/iptables/rules.v4
 
 > server.conf 設定
 
-```
+```text
 push "route 192.168.5.0 255.255.255.0"
 ```
 
@@ -45,25 +43,25 @@ push "route 192.168.5.0 255.255.255.0"
 
 * 建立資料匣
 
-```
+```text
 sudo mkdir /etc/openvpn/ccd
 ```
 
 * server.conf 檔新增一行
 
-```
+```text
 client-config-dir /etc/openvpn/ccd
 ```
 
 * 在 /etc/openvpn/ccd 下新增檔名為使用者名稱 \(即為 `pivpn -a` 所輸入的 Name for the Client\) 的檔案，例：使用者pi4201，固定IP為 10.8.0.201，內容為：
 
-```
+```text
 ifconfig-push 10.8.0.201 255.255.255.0
 ```
 
 > ~~My asus 設定 \(有問題不要用\)~~
 
-```
+```text
 sudo iptables -I FORWARD -i tun21 -o br0 -s 10.8.0.0/24 -d 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT
 sudo iptables -I FORWARD -i tun21 -o ppp0 -s 10.8.0.0/24 -m conntrack --ctstate NEW -j ACCEPT
 sudo iptables -I FORWARD -i br0 -o ppp0 -s 192.168.5.0/24 -m conntrack --ctstate NEW -j ACCEPT
@@ -78,7 +76,7 @@ sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o br0 -j MASQUERADE
 * 參考解決方案：[Official OpenVPN Connect Android client error with PiVPN on Stretch: Requested encryption or digest alg not available \#364](https://github.com/pivpn/pivpn/issues/364)
 * 以下節錄
 
-```
+```text
 For the more impatient people, like me, here is how to re-encode the private key:
 
 cd ~/ovpns
@@ -99,6 +97,4 @@ Now, after obtaining the new key, use your favorite text editor and open the .ov
 
 Save the file, and then re-import the profile on your device. Enjoy!
 ```
-
-
 

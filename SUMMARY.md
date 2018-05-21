@@ -14,5 +14,5 @@
   * [etherwake - 遠端喚醒](ying-yong-tao-jian/etherwake-yuan-duan-huan-xing.md)
   * [ShadowsocksR](ying-yong-tao-jian/shadowsocksr.md)
 * 其他注意事項
-  * [crontab v.s. scp](qi-ta-zhu-yi-shi/crontab-v.s.-scp.md)
+  * [crontab v.s. scp](qi-ta-zhu-yi-shi-xiang/crontab-v.s.-scp.md)
 

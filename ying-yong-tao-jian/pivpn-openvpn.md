@@ -59,6 +59,10 @@ client-config-dir /etc/openvpn/ccd
 ifconfig-push 10.8.0.201 255.255.255.0
 ```
 
+> 同一帳號分配到相同IP問題
+
+* 修改 /etc/openvpn/server.conf，設定duplicate-cn必須打開 \(\#拿掉\)，新版PiVPN預設已改為關閉。
+
 > ~~My asus 設定 \(有問題不要用\)~~
 
 ```text
@@ -71,7 +75,7 @@ sudo iptables -t nat -I POSTROUTING -o ppp0 -s 192.168.5.0/24 -j MASQUERADE
 sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o br0 -j MASQUERADE
 ```
 
-> Debian 9 \(Stretch\) 環境下 OpenVPN Android 官方APP無法連接問題
+> ~~Debian 9 \(Stretch\) 環境下 OpenVPN Android 官方APP無法連接問題~~ \(新版APP已解決, 此問題不存在\)
 
 * 參考解決方案：[Official OpenVPN Connect Android client error with PiVPN on Stretch: Requested encryption or digest alg not available \#364](https://github.com/pivpn/pivpn/issues/364)
 * 以下節錄

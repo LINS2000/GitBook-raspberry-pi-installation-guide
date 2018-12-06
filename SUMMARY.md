@@ -13,6 +13,7 @@
   * [PiVPN \(OpenVPN\)](ying-yong-tao-jian/pivpn-openvpn.md)
   * [etherwake - 遠端喚醒](ying-yong-tao-jian/etherwake-yuan-duan-huan-xing.md)
   * [ShadowsocksR](ying-yong-tao-jian/shadowsocksr.md)
+  * [KMS伺服器](ying-yong-tao-jian/kms-si-fu-qi.md)
 * [其他注意事項](qi-ta-zhu-yi-shi-xiang/README.md)
   * [crontab v.s. scp](qi-ta-zhu-yi-shi-xiang/crontab-v.s.-scp.md)
 

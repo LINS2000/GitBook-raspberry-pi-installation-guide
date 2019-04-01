@@ -45,6 +45,7 @@ push "route 192.168.5.0 255.255.255.0"
 
 ```text
 sudo mkdir /etc/openvpn/ccd
+sudo chown -R nobody:nogroup /etc/openvpn/ccd   #調整權限
 ```
 
 * server.conf 檔新增一行

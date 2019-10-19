@@ -21,7 +21,7 @@ sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o wlan0 -j MASQUERADE
 ```
 
 * 上述設定主要是要能從VPN登入後Access到Lan，是參考 [OpenVPN - Bridging vs. Routing](https://community.openvpn.net/openvpn/wiki/BridgingAndRouting) 與 [PiVPN - Potential issues with your iptables](https://github.com/pivpn/pivpn/issues/182) 而找到的解決方案。
-* 這樣的設定僅暫時生效，重新開機後將失效，為了讓設定永久保留，必須將設定回存/etc/iptables/rules.v4。
+* 這樣的設定僅暫時生效，重新開機後將失效，為了讓設定永久保留，必須將設定回存/etc/iptables/rules.v4。這裡需特別注意，若有裝過ssrmu.sh的一鍵安裝腳本，將會以/etc/iptables.up.rules檔案為準（因開機會執行/etc/network/if-pre-up.d/iptables裡面的指令會iptables-restore此設定）。
 
 ```text
 # 備份目前設定--以備還原
